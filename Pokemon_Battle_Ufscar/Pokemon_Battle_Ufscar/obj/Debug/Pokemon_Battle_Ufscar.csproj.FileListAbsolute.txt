@@ -1,0 +1,10 @@
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\bin\Debug\Pokemon_Battle_Ufscar.exe.config
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\bin\Debug\Pokemon_Battle_Ufscar.exe
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\bin\Debug\Pokemon_Battle_Ufscar.pdb
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\obj\Debug\Pokemon_Battle_Ufscar.csproj.AssemblyReference.cache
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\obj\Debug\Pokemon_Battle_Ufscar.PokemonBattle.resources
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\obj\Debug\Pokemon_Battle_Ufscar.Properties.Resources.resources
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\obj\Debug\Pokemon_Battle_Ufscar.csproj.GenerateResource.cache
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\obj\Debug\Pokemon_Battle_Ufscar.csproj.CoreCompileInputs.cache
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\obj\Debug\Pokemon_Battle_Ufscar.exe
+C:\Users\Orphew\Documents\Orphew\Incogitabilis\Programação\Pokemon_Battle_Ufscar\Pokemon_Battle_Ufscar\obj\Debug\Pokemon_Battle_Ufscar.pdb
