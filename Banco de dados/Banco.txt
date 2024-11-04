@@ -1,0 +1,113 @@
+-- Exclui o banco de dados se já existir
+DROP DATABASE IF EXISTS orphew_pokemon;
+
+-- Cria o banco de dados
+CREATE DATABASE orphew_pokemon CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+-- Usa o banco de dados
+USE orphew_pokemon;
+
+-- Tabela principal dos Pokémon
+CREATE TABLE pokemon (
+    pokedex_number    INT NOT NULL AUTO_INCREMENT,
+    ocidental_name    VARCHAR(100),
+    japonese_name     VARCHAR(100),
+    type1             VARCHAR(50),
+    type2             VARCHAR(50),
+    classification    VARCHAR(100),
+    height_m          FLOAT,
+    weight_kg         FLOAT,
+    generation        INT,
+    is_legendary      TINYINT(1),    -- BOOLEAN representado como TINYINT
+    percentage_male   FLOAT,
+    base_egg_steps    INT,
+    base_happiness    INT,
+    base_total        INT,
+    capture_rate      INT,
+    PRIMARY KEY (pokedex_number)
+);
+
+-- Tabela de Stats
+CREATE TABLE stats (
+    stat_id                INT NOT NULL AUTO_INCREMENT,
+    hp                     INT,
+    attack                 INT,
+    defense                INT,
+    sp_attack              INT,
+    sp_defense             INT,
+    speed                  INT,
+    pokedex_number         INT,          -- Referência à tabela de Pokémon
+    PRIMARY KEY (stat_id),
+    FOREIGN KEY (pokedex_number) REFERENCES pokemon(pokedex_number) ON DELETE CASCADE
+);
+
+-- Tabela de Abilities
+CREATE TABLE abilities (
+    abilities_id           INT NOT NULL AUTO_INCREMENT,
+    ability                VARCHAR(100),
+    pokedex_number         INT,          -- Referência à tabela de Pokémon
+    PRIMARY KEY (abilities_id),
+    FOREIGN KEY (pokedex_number) REFERENCES pokemon(pokedex_number) ON DELETE CASCADE
+);
+
+-- Tabela de Resistências e Fraquezas (Against)
+CREATE TABLE against (
+    against_id             INT NOT NULL AUTO_INCREMENT,
+    against_bug            FLOAT,
+    against_dark           FLOAT,
+    against_dragon         FLOAT,
+    against_electric       FLOAT,
+    against_fairy          FLOAT,
+    against_fight          FLOAT,
+    against_fire           FLOAT,
+    against_flying         FLOAT,
+    against_ghost          FLOAT,
+    against_grass          FLOAT,
+    against_ground         FLOAT,
+    against_ice            FLOAT,
+    against_normal         FLOAT,
+    against_poison         FLOAT,
+    against_psychic        FLOAT,
+    against_rock           FLOAT,
+    against_steel          FLOAT,
+    against_water          FLOAT,
+    pokedex_number         INT,          -- Referência à tabela de Pokémon
+    PRIMARY KEY (against_id),
+    FOREIGN KEY (pokedex_number) REFERENCES pokemon(pokedex_number) ON DELETE CASCADE
+);
+
+-- Tabela de Tipos de Ataques (para 4 ataques fixos)
+CREATE TABLE ataques (
+    ataque_id           INT NOT NULL AUTO_INCREMENT,
+    nome                VARCHAR(50),
+    tipo                VARCHAR(50),    -- Tipo do ataque (ex: água, fogo)
+    poder_base          INT,            -- Dano base do ataque
+    precisao            FLOAT,          -- Precisão do ataque em porcentagem
+    PRIMARY KEY (ataque_id)
+);
+
+-- Tabela de Combate (registro de cada turno do combate entre Pokémon)
+CREATE TABLE combate (
+    combate_id          INT NOT NULL AUTO_INCREMENT,
+    jogador_id          INT,                   -- ID do jogador (1 ou 2)
+    turno               INT,                   -- Número do turno
+    atacante_pokemon_id INT,                   -- ID do Pokémon que ataca
+    defensor_pokemon_id INT,                   -- ID do Pokémon que defende
+    ataque_id           INT,                   -- Referência ao tipo de ataque
+    dano                INT,                   -- Quantidade de dano causado
+    status_efeito       VARCHAR(50),           -- Status do efeito (ex: envenenado, paralisado)
+    PRIMARY KEY (combate_id),
+    FOREIGN KEY (atacante_pokemon_id) REFERENCES pokemon(pokedex_number) ON DELETE CASCADE,
+    FOREIGN KEY (defensor_pokemon_id) REFERENCES pokemon(pokedex_number) ON DELETE CASCADE,
+    FOREIGN KEY (ataque_id) REFERENCES ataques(ataque_id) ON DELETE SET NULL
+);
+
+-- Inserindo exemplos de ataques
+INSERT INTO ataques (nome, tipo, poder_base, precisao) VALUES
+('Ataque Básico', 'normal', 40, 100.0),
+('Ataque Fogo', 'fire', 60, 95.0),
+('Ataque Água', 'water', 50, 100.0),
+('Ataque Elétrico', 'electric', 55, 90.0);
+
+-- Este script SQL cria toda a estrutura do banco de dados para armazenar Pokémon,
+-- seus atributos, habilidades, resistências/fraquezas, tipos de ataque e dados de combate.
